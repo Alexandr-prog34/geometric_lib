@@ -15,7 +15,7 @@
 
 #### Пример:
 
-$ python calculate.py
+```$ python calculate.py
 Enter figure name, available are ['circle', 'square', 'triangle']:
 circle
 Enter function name, available are ['perimeter', 'area']:
@@ -23,7 +23,7 @@ area
 Input figure sizes separated by space:
 10
 Area of circle is 314.1592653589793
-
+```
 # Calculator Documentation
 
 ## Описание функций с примерами вызова
@@ -38,7 +38,7 @@ Area of circle is 314.1592653589793
 - `float`: Площадь круга.
 
 #### Пример использования:
-```python
+
 >>> area_circle(5)
 78.53981633974483
 
@@ -53,7 +53,7 @@ Area of circle is 314.1592653589793
 - `float`: Периметр круга.
 
 #### Пример использования:
-```python
+
 >>> perimeter_circle(5)
 31.41592653589793
 
@@ -68,7 +68,7 @@ Area of circle is 314.1592653589793
 - `float`: Площадь квадрата.
 
 #### Пример использования:
-```python
+
 >>> area_square(4)
 16
 
@@ -83,7 +83,6 @@ Area of circle is 314.1592653589793
 - `float`: Периметр квадрата.
 
 #### Пример использования:
-```python
 >>> perimeter_square(4)
 16
 
@@ -98,7 +97,6 @@ Area of circle is 314.1592653589793
 - `float`: Площадь треугольника.
 
 #### Пример использования:
-```python
 >>> area_triangle(3, 4, 5)
 6.0
 
@@ -113,7 +111,7 @@ Area of circle is 314.1592653589793
 - `float`: Периметр треугольника.
 
 #### Пример использования:
-```python
+
 >>> perimeter_triangle(3, 4, 5)
 12
 
