@@ -14,7 +14,7 @@
 5. Получите результат расчета.
 
 #### Пример:
-```bash
+
 $ python calculate.py
 Enter figure name, available are ['circle', 'square', 'triangle']:
 circle
