@@ -1,33 +1,59 @@
 import circle
 import square
 
-
+# Список доступных фигур
 figs = ['circle', 'square']
+
+# Список доступных функций (площадь и периметр)
 funcs = ['perimeter', 'area']
+
+# Словарь, который хранит количество параметров, необходимых для каждой комбинации функции и фигуры
 sizes = {}
 
 def calc(fig, func, size):
-	assert fig in figs
-	assert func in funcs
+    """Вычисляет и выводит результат заданной функции для заданной фигуры.
 
-	result = eval(f'{fig}.{func}(*{size})')
-	print(f'{func} of {fig} is {result}')
+    Параметры:
+    fig (str): Название фигуры (доступные варианты: 'circle', 'square')
+    func (str): Название функции (доступные варианты: 'perimeter', 'area')
+    size (list): Список размеров фигуры, которые будут переданы в функцию
+
+    Возвращает:
+    Ничего не возвращает, но выводит результат вычислений функции для фигуры.
+
+    Пример использования:
+    >>> calc('circle', 'area', [10])
+    area of circle is 314.1592653589793
+    """
+    assert fig in figs, f"Фигура {fig} недоступна. Доступные фигуры: {figs}"
+    assert func in funcs, f"Функция {func} недоступна. Доступные функции: {funcs}"
+
+    # Вызывает функцию с именем func для фигуры fig и передает ей аргументы из size
+    result = eval(f'{fig}.{func}(*{size})')
+    print(f'{func} of {fig} is {result}')
+
 
 if __name__ == "__main__":
-	func = ''
-	fig = ''
-	size = list()
-    
-	while fig not in figs:
-		fig = input(f"Enter figure name, avaliable are {figs}:\n")
-	
-	while func not in funcs:
-		func = input(f"Enter function name, avaliable are {funcs}:\n")
-	
-	while len(size) != sizes.get(f"{func}-{fig}", 1):
-		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
-	
-	calc(fig, func, size)
+    """Основная программа, которая взаимодействует с пользователем для ввода фигуры, функции и её размеров.
 
+    Пользователю предлагается ввести фигуру, функцию и размеры, после чего программа вызовет соответствующую функцию
+    и выведет результат.
+    """
+    func = ''
+    fig = ''
+    size = list()
 
+    # Запрашивает у пользователя фигуру до тех пор, пока не введена допустимая фигура
+    while fig not in figs:
+        fig = input(f"Enter figure name, available are {figs}:\n")
 
+    # Запрашивает у пользователя функцию до тех пор, пока не введена допустимая функция
+    while func not in funcs:
+        func = input(f"Enter function name, available are {funcs}:\n")
+
+    # Запрашивает у пользователя размеры фигуры до тех пор, пока не будет введено правильное количество аргументов
+    while len(size) != sizes.get(f"{func}-{fig}", 1):
+        size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
+
+    # Вызывает функцию calc для вычисления и вывода результата
+    calc(fig, func, size)
