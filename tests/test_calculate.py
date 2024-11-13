@@ -58,42 +58,58 @@ class TestCalculate(unittest.TestCase):
     def test_invalid_figure(self):
         with self.assertRaises(ValueError) as context:
             calc('hexagon', 'area', [5])
-        self.assertIn("Фигура 'hexagon' недоступна", str(context.exception))
+        self.assertIn(
+            "Фигура 'hexagon' недоступна", str(context.exception)
+        )
 
     def test_invalid_function(self):
         with self.assertRaises(ValueError) as context:
             calc('circle', 'volume', [5])
-        self.assertIn("Функция 'volume' недоступна", str(context.exception))
+        self.assertIn(
+            "Функция 'volume' недоступна", str(context.exception)
+        )
 
     def test_negative_size_circle(self):
         with self.assertRaises(ValueError) as context:
             calc('circle', 'area', [-5])
-        self.assertIn("Радиус не может быть отрицательным", str(context.exception))
+        self.assertIn(
+            "Радиус не может быть отрицательным", str(context.exception)
+        )
 
     def test_negative_size_square(self):
         with self.assertRaises(ValueError) as context:
             calc('square', 'area', [-4])
-        self.assertIn("Сторона квадрата не может быть отрицательной", str(context.exception))
+        self.assertIn(
+            "Сторона квадрата не может быть отрицательной", str(context.exception)
+        )
 
     def test_negative_size_triangle(self):
         with self.assertRaises(ValueError) as context:
             calc('triangle', 'area', [3, -4, 5])
-        self.assertIn("Стороны треугольника не могут быть отрицательными", str(context.exception))
+        self.assertIn(
+            "Стороны треугольника не могут быть отрицательными", str(context.exception)
+        )
 
     def test_triangle_inequality(self):
         with self.assertRaises(ValueError) as context:
             calc('triangle', 'area', [1, 2, 10])
-        self.assertIn("Стороны не образуют треугольник", str(context.exception))
+        self.assertIn(
+            "Стороны не образуют треугольник", str(context.exception)
+        )
 
     def test_incorrect_parameter_count_circle(self):
         with self.assertRaises(ValueError) as context:
             calc('circle', 'area', [3, 4])
-        self.assertIn("Для фигуры 'circle' требуется 1 параметр", str(context.exception))
+        self.assertIn(
+            "Для фигуры 'circle' требуется 1 параметр", str(context.exception)
+        )
 
     def test_incorrect_parameter_count_triangle(self):
         with self.assertRaises(ValueError) as context:
             calc('triangle', 'area', [3, 4])
-        self.assertIn("Для фигуры 'triangle' требуется 3 параметр", str(context.exception))
+        self.assertIn(
+            "Для фигуры 'triangle' требуется 3 параметр", str(context.exception)
+        )
 
 
 if __name__ == "__main__":

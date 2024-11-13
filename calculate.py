@@ -17,7 +17,9 @@ def calc(fig, func, size):
             f"Фигура '{fig}' недоступна. Доступные фигуры: {list(FIGS.keys())}"
         )
     if func not in FUNCS:
-        raise ValueError(f"Функция '{func}' недоступна. Доступные функции: {FUNCS}")
+        raise ValueError(
+            f"Функция '{func}' недоступна. Доступные функции: {FUNCS}"
+        )
 
     module = FIGS[fig]['module']
     func_to_call = getattr(module, func)
@@ -25,9 +27,12 @@ def calc(fig, func, size):
     expected_params = FIGS[fig]['params']
     if len(size) != expected_params:
         raise ValueError(
-            f"Для фигуры '{fig}' требуется {expected_params} параметр(ов), но было передано {len(size)}"
+            f"Для фигуры '{fig}' требуется {expected_params} параметр(ов), но было "
+            f"передано {len(size)}"
         )
 
     result = func_to_call(*size)
-    print(f'{func.capitalize()} of {fig} with size(s) {size} is {result}')
+    print(
+        f'{func.capitalize()} of {fig} with size(s) {size} is {result}'
+    )
     return result
