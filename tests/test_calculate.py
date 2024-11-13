@@ -10,7 +10,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('circle', 'area', [5])
             self.assertAlmostEqual(result, 78.53981633974483)
             mocked_print.assert_called_with(
-                'Area of circle with size(s) [5] is 78.53981633974483'
+                'Area of circle with size(s) [5] is '
+                '78.53981633974483'
             )
 
     def test_circle_perimeter(self):
@@ -18,7 +19,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('circle', 'perimeter', [5])
             self.assertAlmostEqual(result, 31.41592653589793)
             mocked_print.assert_called_with(
-                'Perimeter of circle with size(s) [5] is 31.41592653589793'
+                'Perimeter of circle with size(s) [5] is '
+                '31.41592653589793'
             )
 
     def test_square_area(self):
@@ -42,7 +44,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('triangle', 'area', [3, 4, 5])
             self.assertAlmostEqual(result, 6.0)
             mocked_print.assert_called_with(
-                'Area of triangle with size(s) [3, 4, 5] is 6.0'
+                'Area of triangle with size(s) [3, 4, 5] is '
+                '6.0'
             )
 
     def test_triangle_perimeter(self):
@@ -50,7 +53,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('triangle', 'perimeter', [3, 4, 5])
             self.assertEqual(result, 12)
             mocked_print.assert_called_with(
-                'Perimeter of triangle with size(s) [3, 4, 5] is 12'
+                'Perimeter of triangle with size(s) [3, 4, 5] is '
+                '12'
             )
 
     # Error handling tests
