@@ -1,6 +1,20 @@
+import math
+
+
 def area(a, b, c):
-    return (a + b + c) / 2
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("Стороны треугольника не могут быть отрицательными")
+    if not (a + b > c and a + c > b and b + c > a):
+        raise ValueError("Стороны не образуют треугольник")
+
+    s = (a + b + c) / 2
+    return math.sqrt(s * (s - a) * (s - b) * (s - c))
 
 
 def perimeter(a, b, c):
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("Стороны треугольника не могут быть отрицательными")
+    if not (a + b > c and a + c > b and b + c > a):
+        raise ValueError("Стороны не образуют треугольник")
+
     return a + b + c

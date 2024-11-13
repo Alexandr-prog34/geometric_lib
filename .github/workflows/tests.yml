@@ -1,0 +1,41 @@
+name: CI for Geometric Library
+
+on:
+  push:
+    branches:
+      - main
+      - release
+  pull_request:
+    branches:
+      - master
+      - release
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      FULL_NAME: "Плотников Александр Вадимович"
+      GROUP_NUMBER: "М3112"
+
+    steps:
+      - name: Display User Info
+        run: |
+          echo "Name: ${{ env.FULL_NAME }}, Group: ${{ env.GROUP_NUMBER }}, GitHub Username: ${{ github.actor }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 .
