@@ -1,7 +1,9 @@
 import unittest
 from square import area, perimeter
 
+
 class TestSquare(unittest.TestCase):
+
     def test_area_positive_side(self):
         a = 4
         expected_area = a * a
@@ -31,6 +33,7 @@ class TestSquare(unittest.TestCase):
         a = -4
         with self.assertRaises(ValueError):
             perimeter(a)
+
 
 if __name__ == '__main__':
     unittest.main()

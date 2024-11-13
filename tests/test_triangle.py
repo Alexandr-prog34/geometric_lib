@@ -2,7 +2,9 @@ import unittest
 from triangle import area, perimeter
 import math
 
+
 class TestTriangle(unittest.TestCase):
+
     def test_area_valid_triangle(self):
         a, b, c = 3, 4, 5
         s = (a + b + c) / 2
@@ -43,6 +45,7 @@ class TestTriangle(unittest.TestCase):
         a, b, c = -3, 4, 5
         with self.assertRaises(ValueError):
             perimeter(a, b, c)
+
 
 if __name__ == '__main__':
     unittest.main()
