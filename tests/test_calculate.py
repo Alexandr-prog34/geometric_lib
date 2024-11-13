@@ -28,7 +28,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('square', 'area', [4])
             self.assertEqual(result, 16)
             mocked_print.assert_called_with(
-                'Area of square with size(s) [4] is 16'
+                'Area of square with size(s) [4] is '
+                '16'
             )
 
     def test_square_perimeter(self):
@@ -36,7 +37,8 @@ class TestCalculate(unittest.TestCase):
             result = calc('square', 'perimeter', [4])
             self.assertEqual(result, 16)
             mocked_print.assert_called_with(
-                'Perimeter of square with size(s) [4] is 16'
+                'Perimeter of square with size(s) [4] is '
+                '16'
             )
 
     def test_triangle_area(self):
@@ -84,14 +86,16 @@ class TestCalculate(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             calc('square', 'area', [-4])
         self.assertIn(
-            "Сторона квадрата не может быть отрицательной", str(context.exception)
+            "Сторона квадрата не может быть отрицательной",
+            str(context.exception)
         )
 
     def test_negative_size_triangle(self):
         with self.assertRaises(ValueError) as context:
             calc('triangle', 'area', [3, -4, 5])
         self.assertIn(
-            "Стороны треугольника не могут быть отрицательными", str(context.exception)
+            "Стороны треугольника не могут быть отрицательными",
+            str(context.exception)
         )
 
     def test_triangle_inequality(self):
@@ -105,14 +109,16 @@ class TestCalculate(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             calc('circle', 'area', [3, 4])
         self.assertIn(
-            "Для фигуры 'circle' требуется 1 параметр", str(context.exception)
+            "Для фигуры 'circle' требуется 1 параметр",
+            str(context.exception)
         )
 
     def test_incorrect_parameter_count_triangle(self):
         with self.assertRaises(ValueError) as context:
             calc('triangle', 'area', [3, 4])
         self.assertIn(
-            "Для фигуры 'triangle' требуется 3 параметр", str(context.exception)
+            "Для фигуры 'triangle' требуется 3 параметр",
+            str(context.exception)
         )
 
 
